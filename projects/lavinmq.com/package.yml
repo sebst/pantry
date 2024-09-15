@@ -1,0 +1,27 @@
+distributable:
+  url: https://github.com/cloudamqp/lavinmq/archive/refs/tags/v{{version}}.tar.gz
+  strip-components: 1
+
+versions:
+  github: cloudamqp/lavinmq
+
+dependencies:
+
+
+build: 
+  dependencies:
+    crystal-lang.org: '*'
+
+  script:
+    - shards install
+    - make 
+  # env:
+  #   PREFIX: {{prefix}}
+  #   INCLUDEDIR: {{prefix}}/include
+
+provides:
+  - bin/lavinmq
+
+test:
+  script:
+    lavingmq -v
